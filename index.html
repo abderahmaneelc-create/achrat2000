@@ -93,45 +93,38 @@
             <p>
                 مفروشات أشراط تقدم تشكيلة واسعة من الأثاث الحديث والكلاسيكي، مصنوع بأجود المواد وباهتمام كبير بالتفاصيل. نحن ملتزمون بتقديم تصميمات أنيقة تجمع بين الراحة والجمال.
             </p>
-            <section>
-                <div class="row">
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a></div>
-                    <div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a></div>
-               
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic13.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic14.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic15.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic16.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic17.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic18.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic19.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic20.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic21.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic22.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic23.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic24.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic25.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic26.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic27.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic28.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic29.jpg" alt=""></a></div>
-					<div class="col-4 col-6-medium col-12-small"><a href="#" class="image fit"><img src="images/pic30.jpg" alt=""></a></div>
-				
-				
-				
-				
-				</div>
-            </section>
+			<section>
+    <div class="gallery" id="gallery" style="display:flex; flex-wrap:wrap; gap:15px;"></div>
+
+    <script>
+    const cloudName = "dbfg01oet";  // اسم حسابك في Cloudinary
+    const folderName = "gallery";     // اسم الفولدر في Cloudinary
+
+    fetch(`https://res.cloudinary.com/${cloudName}/image/list/${folderName}.json`)
+      .then(res => res.json())
+      .then(data => {
+        const gallery = document.getElementById("gallery");
+        data.resources.forEach(img => {
+          const link = document.createElement("a");
+          link.href = "https://wa.me/212613156901"; // فتح واتساب عند الضغط
+          link.target = "_blank";
+
+          const image = document.createElement("img");
+          image.src = `https://res.cloudinary.com/${cloudName}/image/upload/${img.public_id}.jpg`;
+          image.style.width = "220px";
+          image.style.height = "220px";
+          image.style.objectFit = "cover";
+          image.style.borderRadius = "10px";
+          image.style.margin = "5px";
+
+          link.appendChild(image);
+          gallery.appendChild(link);
+        });
+      })
+      .catch(err => console.error("Error loading Cloudinary images:", err));
+    </script>
+</section>
+
         </article>
 
         <!-- Contact -->
@@ -171,3 +164,4 @@
 
 </body>
 </html>
+
