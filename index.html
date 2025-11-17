@@ -86,46 +86,42 @@
         </article>
 
         <!-- Work -->
-        <article id="work" class="panel">
-            <header>
-                <h2>المعرض</h2>
-            </header>
-            <p>
-                مفروشات أشراط تقدم تشكيلة واسعة من الأثاث الحديث والكلاسيكي، مصنوع بأجود المواد وباهتمام كبير بالتفاصيل. نحن ملتزمون بتقديم تصميمات أنيقة تجمع بين الراحة والجمال.
-            </p>
-			<section>
-    <div class="gallery" id="gallery" style="display:flex; flex-wrap:wrap; gap:15px;"></div>
+        <section id="work" class="panel">
+  <header>
+    <h2>المعرض</h2>
+  </header>
 
-    <script>
-    const cloudName = "dbfg01oet";  // اسم حسابك في Cloudinary
-    const folderName = "gallery";     // اسم الفولدر في Cloudinary
+  <div class="gallery" id="gallery" style="display:flex; flex-wrap:wrap; gap:15px;"></div>
 
-    fetch(`https://res.cloudinary.com/${cloudName}/image/list/${folderName}.json`)
-      .then(res => res.json())
-      .then(data => {
-        const gallery = document.getElementById("gallery");
-        data.resources.forEach(img => {
-          const link = document.createElement("a");
-          link.href = "https://wa.me/212613156901"; // فتح واتساب عند الضغط
-          link.target = "_blank";
+  <script>
+    // هنا ضع روابط الصور من Cloudinary مباشرة
+    const images = [
+      "https://res.cloudinary.com/dbfg01oet/image/upload/v1763339335/pic01_wkhgf7.jpg",
+      "https://res.cloudinary.com/dbfg01oet/image/upload/v1763339335/pic02.jpg",
+      "https://res.cloudinary.com/dbfg01oet/image/upload/v1763339335/pic03.jpg"
+      // أضف أي روابط صور أخرى هنا بنفس الشكل
+    ];
 
-          const image = document.createElement("img");
-          image.src = `https://res.cloudinary.com/${cloudName}/image/upload/${img.public_id}.jpg`;
-          image.style.width = "220px";
-          image.style.height = "220px";
-          image.style.objectFit = "cover";
-          image.style.borderRadius = "10px";
-          image.style.margin = "5px";
+    const gallery = document.getElementById("gallery");
 
-          link.appendChild(image);
-          gallery.appendChild(link);
-        });
-      })
-      .catch(err => console.error("Error loading Cloudinary images:", err));
-    </script>
+    images.forEach(src => {
+      const link = document.createElement("a");
+      link.href = "https://wa.me/212613156901"; // يفتح واتساب عند الضغط
+      link.target = "_blank";
+
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.width = "220px";
+      img.style.height = "220px";
+      img.style.objectFit = "cover";
+      img.style.borderRadius = "10px";
+      img.style.margin = "5px";
+
+      link.appendChild(img);
+      gallery.appendChild(link);
+    });
+  </script>
 </section>
-
-        </article>
 
         <!-- Contact -->
         <article id="contact" class="panel">
@@ -164,4 +160,5 @@
 
 </body>
 </html>
+
 
