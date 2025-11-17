@@ -86,7 +86,7 @@
         </article>
 
         <!-- Work -->
-        <section id="work" class="panel">
+       <section id="work" class="panel">
   <header>
     <h2>المعرض</h2>
   </header>
@@ -94,12 +94,13 @@
   <div class="gallery" id="gallery" style="display:flex; flex-wrap:wrap; gap:15px;"></div>
 
   <script>
-    // هنا ضع روابط الصور من Cloudinary مباشرة
+    // روابط الصور من Cloudinary مع قص 220x220
     const images = [
-      "https://res.cloudinary.com/dbfg01oet/image/upload/v1763339335/pic01_wkhgf7.jpg",
-		"https://res.cloudinary.com/dbfg01oet/image/upload/v1763340324/pic02_qeyrpr.jpg",
-      
-      // أضف أي روابط صور أخرى هنا بنفس الشكل
+      "https://res.cloudinary.com/dbfg01oet/image/upload/c_fill,w_220,h_220/v1763339335/pic01_wkhgf7.jpg",
+     "https://res.cloudinary.com/dbfg01oet/image/upload/c_fill,w_220,h_220/v1763340324/pic02_qeyrpr.jpg,"
+		"https://res.cloudinary.com/dbfg01oet/image/upload/c_fill,w_220,h_220/v1763339335/pic02.jpg",
+      "https://res.cloudinary.com/dbfg01oet/image/upload/c_fill,w_220,h_220/v1763339335/pic03.jpg"
+      // أضف أي روابط صور أخرى بنفس الطريقة
     ];
 
     const gallery = document.getElementById("gallery");
@@ -113,7 +114,7 @@
       img.src = src;
       img.style.width = "220px";
       img.style.height = "220px";
-      img.style.objectFit = "cover";
+      img.style.objectFit = "cover"; // تضمن تناسق الصورة داخل المربع
       img.style.borderRadius = "10px";
       img.style.margin = "5px";
 
@@ -122,6 +123,7 @@
     });
   </script>
 </section>
+
 
         <!-- Contact -->
         <article id="contact" class="panel">
@@ -160,6 +162,7 @@
 
 </body>
 </html>
+
 
 
 
